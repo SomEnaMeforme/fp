@@ -1,14 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileSenderRailway", "FileSenderRailway\FileSenderRailway.csproj", "{D979A1EA-516A-46BC-BE6C-8845CA10853D}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34902.65
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ErrorHandling", "ErrorHandling\ErrorHandling.csproj", "{66FAF276-533D-4733-AB2E-A9905D678CF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ErrorHandling", "ErrorHandling\ErrorHandling.csproj", "{66FAF276-533D-4733-AB2E-A9905D678CF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TagCloudDI", "TagCloudDI\TagCloudDI.csproj", "{7DA64307-0F29-47F5-89C2-89D8FEBBF03E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{66FAF276-533D-4733-AB2E-A9905D678CF6} = {66FAF276-533D-4733-AB2E-A9905D678CF6}
+	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{754C1CC8-A8B6-46C6-B35C-8A43B80111A0}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Summator", "Samples\Summator\Summator.csproj", "{C33F3A5E-A1ED-4657-9B35-968A4CB23AA1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConwaysGameOfLife", "Samples\ConwaysGameOfLife\ConwaysGameOfLife.csproj", "{4B77EC28-5FB5-4095-B3D7-127F5C488D6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TagCloudDITests", "TagCloudDITests\TagCloudDITests.csproj", "{6339D010-9F32-4594-8562-3082F2F12D59}"
+	ProjectSection(ProjectDependencies) = postProject
+		{66FAF276-533D-4733-AB2E-A9905D678CF6} = {66FAF276-533D-4733-AB2E-A9905D678CF6}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -16,25 +21,23 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D979A1EA-516A-46BC-BE6C-8845CA10853D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D979A1EA-516A-46BC-BE6C-8845CA10853D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D979A1EA-516A-46BC-BE6C-8845CA10853D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D979A1EA-516A-46BC-BE6C-8845CA10853D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{66FAF276-533D-4733-AB2E-A9905D678CF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{66FAF276-533D-4733-AB2E-A9905D678CF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{66FAF276-533D-4733-AB2E-A9905D678CF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{66FAF276-533D-4733-AB2E-A9905D678CF6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C33F3A5E-A1ED-4657-9B35-968A4CB23AA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C33F3A5E-A1ED-4657-9B35-968A4CB23AA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C33F3A5E-A1ED-4657-9B35-968A4CB23AA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C33F3A5E-A1ED-4657-9B35-968A4CB23AA1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4B77EC28-5FB5-4095-B3D7-127F5C488D6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4B77EC28-5FB5-4095-B3D7-127F5C488D6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4B77EC28-5FB5-4095-B3D7-127F5C488D6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4B77EC28-5FB5-4095-B3D7-127F5C488D6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7DA64307-0F29-47F5-89C2-89D8FEBBF03E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7DA64307-0F29-47F5-89C2-89D8FEBBF03E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7DA64307-0F29-47F5-89C2-89D8FEBBF03E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7DA64307-0F29-47F5-89C2-89D8FEBBF03E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6339D010-9F32-4594-8562-3082F2F12D59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6339D010-9F32-4594-8562-3082F2F12D59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6339D010-9F32-4594-8562-3082F2F12D59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6339D010-9F32-4594-8562-3082F2F12D59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{C33F3A5E-A1ED-4657-9B35-968A4CB23AA1} = {754C1CC8-A8B6-46C6-B35C-8A43B80111A0}
-		{4B77EC28-5FB5-4095-B3D7-127F5C488D6E} = {754C1CC8-A8B6-46C6-B35C-8A43B80111A0}
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {44881DCD-9A3C-4770-9BF7-D9B01D70EFB4}
 	EndGlobalSection
 EndGlobal

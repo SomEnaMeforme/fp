@@ -139,37 +139,37 @@ public class Result_Should
         res.Should().BeEquivalentTo(Result.Ok("1358571172 -> 50fa26a4-50fa-26a4-50fa-26a450fa26a4"));
     }
 
-    // [Test]
-    // public void ReplaceError_IfFail()
-    // {
-    //     Result.Fail<None>("error")
-    //         .ReplaceError(e => "replaced")
-    //         .Should().BeEquivalentTo(Result.Fail<None>("replaced"));
-    // }
-    //
-    // [Test]
-    // public void ReplaceError_DoNothing_IfSuccess()
-    // {
-    //     Result.Ok(42)
-    //         .ReplaceError(e => "replaced")
-    //         .Should().BeEquivalentTo(Result.Ok(42));
-    // }
-    //
-    // [Test]
-    // public void ReplaceError_DontReplace_IfCalledBeforeError()
-    // {
-    //     Result.Ok(42)
-    //         .ReplaceError(e => "replaced")
-    //         .Then(n => Result.Fail<int>("error"))
-    //         .Should().BeEquivalentTo(Result.Fail<int>("error"));
-    // }
-    //
-    // [Test]
-    // public void RefineError_AddErrorMessageBeforePreviousErrorText()
-    // {
-    //     var calculation = Result.Fail<None>("No connection");
-    //     calculation
-    //         .RefineError("Posting results to db")
-    //         .Should().BeEquivalentTo(Result.Fail<None>("Posting results to db. No connection"));
-    // }
+    [Test]
+    public void ReplaceError_IfFail()
+    {
+        Result.Fail<None>("error")
+            .ReplaceError(e => "replaced")
+            .Should().BeEquivalentTo(Result.Fail<None>("replaced"));
+    }
+
+    [Test]
+    public void ReplaceError_DoNothing_IfSuccess()
+    {
+        Result.Ok(42)
+            .ReplaceError(e => "replaced")
+            .Should().BeEquivalentTo(Result.Ok(42));
+    }
+
+    [Test]
+    public void ReplaceError_DontReplace_IfCalledBeforeError()
+    {
+        Result.Ok(42)
+            .ReplaceError(e => "replaced")
+            .Then(n => Result.Fail<int>("error"))
+            .Should().BeEquivalentTo(Result.Fail<int>("error"));
+    }
+
+    [Test]
+    public void RefineError_AddErrorMessageBeforePreviousErrorText()
+    {
+        var calculation = Result.Fail<None>("No connection");
+        calculation
+            .RefineError("Posting results to db")
+            .Should().BeEquivalentTo(Result.Fail<None>("Posting results to db. No connection"));
+    }
 }
