@@ -26,6 +26,11 @@ public struct Result<T>
         throw new InvalidOperationException($"No value. Only Error {Error}");
     }
 
+    public T GetValueOrDefault(T defaultValue = default)
+    {
+        return IsSuccess ? Value : defaultValue;
+    }
+
     public bool IsSuccess => Error == null;
 }
 

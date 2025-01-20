@@ -45,7 +45,7 @@ namespace TagsCloudVisualization.CloudLayouter
                     .Then(p => new Rectangle(p, forInsertionSize));
                 isIntersected = forInsertion.Then(r => r.IntersectedWithAnyFrom(storage));
             }
-            while (isIntersected.GetValueOrThrow());
+            while (isIntersected.GetValueOrDefault());
 
             return forInsertion;
         }
@@ -53,7 +53,7 @@ namespace TagsCloudVisualization.CloudLayouter
         private static Result<Size> ValidateRectangleSize(Size forInsertion)
         {
             return forInsertion.AsResult()
-                .Validate(r => r.Width > 0 && r.Height > 0,$"Rectangle has incorrect size");
+                .Validate(r => r.Width > 0 && r.Height > 0, $"Rectangle has incorrect size");
         }
 
         public void Clear()

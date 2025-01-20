@@ -9,11 +9,11 @@ namespace TagCloudDI
         private DataProvider dataProvider;
         private CloudVisualizer cloudVisualizer;
         private readonly IImageSaver imageSaver;
-        public CloudCreator(DataProvider dataProvider, CloudVisualizer visualizer) 
+        public CloudCreator(DataProvider dataProvider, CloudVisualizer visualizer, IImageSaver saver) 
         {
             this.dataProvider = dataProvider;
             cloudVisualizer = visualizer;
-            imageSaver = new DefaultImageSaver();
+            imageSaver = saver;
         }
         
         public Result<string> CreateTagCloud(string pathToFileWithWords)

@@ -12,12 +12,11 @@ namespace TagsCloudVisualization.CloudLayouter
             var nearestByDirection = rectangles
                 .Select(possibleNearest =>
                 (Distance: CalculateMinDistanceBy(direction, possibleNearest, r), Nearest: possibleNearest))
-                .Where(el => el.Distance.GetValueOrThrow() >= 0)
+                .Where(el => el.Distance.GetValueOrDefault() >= 0)
                 .ToList();
 
-            return nearestByDirection.Count > 0 ? nearestByDirection.MinBy(el => el.Distance.GetValueOrThrow()).Nearest : null;
+            return nearestByDirection.Count > 0 ? nearestByDirection.MinBy(el => el.Distance.GetValueOrDefault()).Nearest : null;
         }
-
 
         public static Result<int> CalculateMinDistanceBy(Direction direction,
             Rectangle possibleNearest, Rectangle rectangleForFind)

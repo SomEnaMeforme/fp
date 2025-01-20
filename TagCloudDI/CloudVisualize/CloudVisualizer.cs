@@ -19,10 +19,12 @@ namespace TagCloudDI.CloudVisualize
 
         public Result<Bitmap> CreateImage((string Word, double Frequency)[] source)
         {
-            var words = LayoutWords(source)
+            var layoutedWords = LayoutWords(source);
+            var words = layoutedWords
                 .Where(w => w.IsSuccess)
-                .Select(w => w.GetValueOrThrow())
+                .Select(w => w.GetValueOrDefault())
                 .ToArray();
+            if (words.Length == 0) return Result.Fail<Bitmap>($"Failed to layout all words, by causes: {GetLayoutWordsErrors(layoutedWords)}");
             return settings.ImageSize.AsResult()
                 .ValidateOrGetDefault(_ => IsTagCloudSizeMoreThanImageSize(words), CalculateImageSize(words))
                 .Then(imageSize => { settings.ImageSize = imageSize; })
@@ -68,6 +70,14 @@ namespace TagCloudDI.CloudVisualize
                     .Then(border => new WordParameters(word.Word, border, fontSize));
             }
             layouter.Clear();
+        }
+
+        private string GetLayoutWordsErrors(IEnumerable<Result<WordParameters>> fails)
+        {
+            return string.Join(", ", fails
+                .Where(res => !res.IsSuccess)
+                .Select(fail => fail.Error)
+                .Distinct());
         }
 
         private WordParameters[] PlaceCloudInImage(WordParameters[] words, Size tmpImageSize)

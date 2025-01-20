@@ -1,5 +1,4 @@
 ﻿using ErrorHandling;
-using ErrorHandling.QuerySyntax;
 
 namespace TagCloudDI.Data
 {

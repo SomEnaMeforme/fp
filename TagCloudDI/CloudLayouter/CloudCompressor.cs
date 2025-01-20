@@ -32,7 +32,7 @@ namespace TagsCloudVisualization
                     var distance = GetDistanceForMoving(forInsertion, direction)
                         .ValidateOrGetDefault(d => d != 0, minDistanceForMoving);
                     forInsertion.Location = MoveByDirection(forInsertion.Location,
-                        distance.GetValueOrThrow(), direction);
+                        distance.GetValueOrDefault(), direction);
                 }
 
                 var wasIntersection = !IsIntersectCompressionPointAxis(direction, forInsertion);
